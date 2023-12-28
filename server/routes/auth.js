@@ -7,7 +7,12 @@ const Joi = require("joi");
 const cors = require("cors");
 
 // Enable CORS for the login route
-router.use(cors());
+router.use(cors(
+	  {
+	origin: "https://auth2-gamma.vercel.app/signup",
+	credentials: true
+  }
+));
 
 router.post("/", async (req, res) => {
   try {
