@@ -7,10 +7,7 @@ const cors = require("cors");
 
 // Enable CORS for the signup route
 router.use(cors(
-	  {
-	origin: "https://auth2-gamma.vercel.app",
-	credentials: true
-  }
+
 ));
 
 router.get("/", async (req, res) => {
