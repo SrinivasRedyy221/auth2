@@ -8,11 +8,20 @@ const cors = require("cors");
 // Enable CORS for the signup route
 router.use(cors(
 	  {
-	origin: "https://auth2-gamma.vercel.app/signup",
+	origin: "https://auth2-gamma.vercel.app",
 	credentials: true
   }
 ));
 
+router.get("/", async (req, res) => {
+	  try {
+	const users = await User.find();
+	res.status(200).send({ data: users });
+  } catch (error) {
+	res.status(500).send({ message: "Internal Server Error" });
+  }
+}	
+);
 router.post("/", async (req, res) => {
   try {
     const { error } = validate(req.body);

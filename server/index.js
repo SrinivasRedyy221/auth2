@@ -24,11 +24,18 @@ app.use("/api/auth", authRoutes);
 
 // Add a middleware to handle CORS headers
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.header("Access-Control-Allow-Origin", "https://auth2-gamma.vercel.app/");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   next();
 });
+
+
+// server
+app.get("/", (req, res) => {
+    res.send("Hello World!");
+    }
+);
 
 const port = process.env.PORT || 8080;
 app.listen(port, console.log(`Listening on port ${port}...`));
